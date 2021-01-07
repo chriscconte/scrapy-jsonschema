@@ -26,7 +26,7 @@ from scrapy.item import Item, Field
 
 try:
     # Scrapy >=  2.1
-    from scrapy.item import ItemMeta as ItemMeta
+    from scrapy.item import ItemMeta
 except ImportError:
     # Scrapy < 2.1
     from abc import ABCMeta as ItemMeta
