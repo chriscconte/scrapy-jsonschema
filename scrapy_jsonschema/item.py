@@ -23,12 +23,13 @@ from jsonschema import (
 
 from scrapy.item import Item, Field
 
+
 try:
     # Scrapy >=  2.1
-    from scrapy.item import _BaseItemMeta
+    from scrapy.item import ItemMeta as ItemMeta
 except ImportError:
     # Scrapy < 2.1
-    from abc import ABCMeta as _BaseItemMeta
+    from abc import ABCMeta as ItemMeta
 
 
 def _merge_schema(base, new):
@@ -45,7 +46,7 @@ def _merge_schema(base, new):
     return base
 
 
-class JsonSchemaMeta(_BaseItemMeta):
+class JsonSchemaMeta(ItemMeta):
 
     # For backward compatibility
     format_checker = FormatChecker()
