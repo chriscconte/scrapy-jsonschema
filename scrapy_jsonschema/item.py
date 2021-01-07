@@ -21,7 +21,7 @@ from jsonschema import (
     draft7_format_checker,
 )
 
-from scrapy.item import DictItem, Field
+from scrapy.item import Item, Field
 
 try:
     # Scrapy >=  2.1
@@ -118,7 +118,7 @@ class JsonSchemaMeta(_BaseItemMeta):
 
 
 @six.add_metaclass(JsonSchemaMeta)
-class JsonSchemaItem(DictItem):
+class JsonSchemaItem(Item):
     jsonschema = {"properties": {}}
     merge_schema = False  # Off for backward-compatibility
 
